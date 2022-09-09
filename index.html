@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+        <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" href="style.css">
+                <script src="main.js"></script>
+                <title>Document</title>
+            </head>
+            <body>
+            <form action="" method="post" enctype="multipart/form-data">
+                  <label><b>Book Title    
+                    </b>    
+                  </label>    
+                    <a><input type="text" name="title" id="file" />
+                 <label><b>Book Author    
+                    </b>    
+                  </label>       
+                 <input type="text" name="author" id="file" />
+                 <label><b>Genre    
+                    </b>    
+                  </label>
+                 <input type="text" name="genre" id="file" />
+
+                 <button type="submit" name="submit" value="Submit">Submit</button>
+            </form>
+            <script language="php">  
+                $username = "username";
+                $password = "password";
+                $dbname = "myDB";
+                $servername = "localhost";
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                $query = "SELECT * FROM `BOOKS`;";
+  
+            $result = $conn->query($query);
+  
+            if ($result->num_rows > 0) 
+            {
+        // OUTPUT DATA OF EACH ROW
+            while($row = $result->fetch_assoc())
+            {
+                echo "Title: " .
+                    $row["Title"]. " - Title: " .
+                    $row["Genre"]. " | Genre: " . 
+                    $row["Author"]. " | Author: " . 
+            }
+            }  
+            else {
+            echo "0 results";
+            }
+                $sql = "DELETE FROM BOOKS WHERE id=3";
+                if ($conn->query($sql) === TRUE) {
+                echo "Record deleted successfully";
+                } else {
+                echo "Error deleting record: " . $conn->error;
+                }
+                $sql = "UPDATE BOOKS SET author='JamesDeen' WHERE id=2";
+
+                if ($conn->query($sql) === TRUE) {
+                echo "Record updated successfully";
+                } else {
+                echo "Error updating record: " . $conn->error;
+                }
+                $conn->close();
+            </script>
+            
+        </body>
+            
+            </html>
