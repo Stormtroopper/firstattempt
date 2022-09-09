@@ -1,0 +1,59 @@
+<html>
+
+<head>Javascript Array</head>
+
+<body>
+    <p id="demo"></p>
+    <script language="javascript" type="text/javascript">
+        let a = ["CHOCOLATE", "GRAPES", "BANANA"];
+        document.getElementById("demo").innerHTML = a;
+        let CHOCOLATE = a[0];
+        document.getElementById("demo").innerHTML = CHOCOLATE;
+        let l = a.length;
+        document.getElementById("demo").innerHTML = l;
+        let last = a[a.length - 1];
+        document.getElementById("demo").innerHTML = last;
+        a.forEach((item, index, array) => {
+            console.log(item, index);
+        });
+        document.getElementById("demo").innerHTML = a.toString();
+        let last1 = a.pop();
+        document.getElementById("demo").innerHTML = last1;
+        let last2 = a[a.length - 1];
+        console.log(last2);
+        a.push("LEMON");
+        document.getElementById("demo").innerHTML = a;
+        a.shift();
+        document.getElementById("demo").innerHTML = a;
+        a.unshift("CHEESE");
+        document.getElementById("demo").innerHTML = a;
+        let b = ["Suzuki", "Jaguar", "BMW"];
+        let c = a.concat(b);
+        document.getElementById("demo").innerHTML = c;
+        c.sort();
+        document.getElementById("demo").innerHTML = c;
+        c.reverse();
+        document.getElementById("demo").innerHTML = c;
+        let num1 = [2, 4, 3, 76, 21];
+        let num2 = num1.map(multiply);
+
+        function multiply(value) {
+            return value * 34;
+        }
+        document.getElementById("demo").innerHTML = num2;
+        let num3 = num1.filter(comp);
+
+        function comp(value) {
+            return value > 10;
+        }
+        document.getElementById("demo").innerHTML = num3;
+        let num4 = num1.reduce(sum);
+
+        function sum(total, value) {
+            return total + value;
+        }
+        document.getElementById("demo").innerHTML = num4;
+    </script>
+</body>
+
+</html>
